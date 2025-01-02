@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon -L",
-    "seed": "node seed.js"
+    "initDB": "node initDB.js"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,83 @@
+[
+    {
+      "name": "Sushi de atún",
+      "description": "Sushi fresco de atún con un toque de soya",
+      "price": 13.99,
+      "category": "sushi",
+      "ingredients": ["atún", "arroz", "alga nori"],
+      "image": "https://img-global.cpcdn.com/recipes/94d9d4ee1388c544/1200x630cq70/photo.jpg"
+    },
+    {
+      "name": "Roll California",
+      "description": "Un clásico roll con aguacate, cangrejo y pepino",
+      "price": 9.99,
+      "category": "roll",
+      "ingredients": ["aguacate", "cangrejo", "pepino", "arroz", "alga nori"],
+      "image": "https://www.justspices.es/media/recipe/California-rolls.jpg"
+    },
+    {
+      "name": "Sushi de anguila",
+      "description": "Sushi de anguila glaseada con salsa unagi",
+      "price": 14.99,
+      "category": "sushi",
+      "ingredients": ["anguila", "arroz", "salsa unagi", "alga nori"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS-w-gYiZQnfr6_ZVrwtdn0BpoFtvfc2VRUg&s"
+    },
+    {
+      "name": "Roll de tempura de camarón",
+      "description": "Roll relleno de camarón tempura y aguacate",
+      "price": 11.99,
+      "category": "roll",
+      "ingredients": ["camarón tempura", "arroz", "aguacate", "alga nori"],
+      "image": "https://i.ytimg.com/vi/8lMjcib6xhs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAz9fSSQGcbhyJXqIjLlO4Fene_Rg"
+    },
+    {
+      "name": "Bento de sushi mixto",
+      "description": "Bento box con variedad de sushi y acompañamientos",
+      "price": 19.99,
+      "category": "bento",
+      "ingredients": ["salmón", "atún", "camarón", "arroz", "vegetales"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnMho4v0u9CiMVth8ZIjELNeiYpK0uQncvA&s"
+    },
+    {
+      "name": "Nigiri de salmón",
+      "description": "Nigiri tradicional con salmón fresco",
+      "price": 8.99,
+      "category": "sushi",
+      "ingredients": ["salmón", "arroz"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaNO2HX1t5NkCmpEDd_Ho08iblWr8L_lif9A&s"
+    },
+    {
+      "name": "Roll de mango y aguacate",
+      "description": "Roll refrescante con mango, aguacate y pepino",
+      "price": 10.99,
+      "category": "roll",
+      "ingredients": ["mango", "aguacate", "pepino", "arroz", "alga nori"],
+      "image": "https://example.com/roll-mango-aguacate.jpg"
+    },
+    {
+      "name": "Sashimi de atún",
+      "description": "Sashimi de atún fresco, ideal para los amantes del pescado",
+      "price": 16.99,
+      "category": "sushi",
+      "ingredients": ["atún fresco"],
+      "image": "https://okdiario.com/img/2018/12/26/receta-de-sashimi-de-atun-1.jpg"
+    },
+    {
+      "name": "Roll Filadelfia",
+      "description": "Roll con queso crema, salmón y aguacate",
+      "price": 12.49,
+      "category": "roll",
+      "ingredients": ["queso crema", "salmón", "aguacate", "arroz", "alga nori"],
+      "image": "https://www.clarin.com/img/2020/06/18/5L2oDs4Ey_0x750__1.jpg"
+    },
+    {
+      "name": "Postre mochi de matcha",
+      "description": "Mochi suave con relleno de matcha",
+      "price": 6.99,
+      "category": "postre",
+      "ingredients": ["arroz glutinoso", "matcha", "azúcar"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUZVUrUl0FrX3Xh2-QLzu8teNiePb2H5BYLA&s"
+    }
+  ]
+  

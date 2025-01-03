@@ -86,10 +86,6 @@ export async function updateProductService(productId, updateData) {
       throw new Error("Product ID is required.");
     }
 
-    if (!updateData || Object.keys(updateData).length === 0) {
-      throw new Error("No data provided for update.");
-    }
-
     const updatedProduct = await Product.findByIdAndUpdate(
       productId,
       { $set: updateData },
@@ -112,14 +108,23 @@ export async function deleteProductService(productId) {
       throw new Error("Product ID is required.");
     }
 
-    const deletedProduct = await Product.findByIdAndDelete(productId);
+    const objectId = new mongoose.Types.ObjectId(productId);
 
-    if (!deletedProduct) {
-      throw new Error(`Product with ID ${productId} not found.`);
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      throw new Error(`Invalid ObjectId format: ${productId}`);
     }
 
-    return { message: "Product deleted successfully.", deletedProduct };
+    const result = await Product.deleteOne({
+      _id: objectId
+    });
+
+
+    if (result.deletedCount === 0) {
+      throw new Error(`Product with ID ${productId} does not exist.`);
+    }
+
+    return result;
   } catch (error) {
-    throw new Error(`Error deleting product: ${error.message}`);
+    throw error;
   }
 }

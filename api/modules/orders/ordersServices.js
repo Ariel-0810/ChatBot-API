@@ -22,7 +22,7 @@ export async function getOrderByIdService(orderId) {
       throw new Error("Order ID is missing.");
     }
     if (!mongoose.Types.ObjectId.isValid(orderId)) {
-      throw new Error("Invalid Order ID format.");
+      throw new Error("Invalid Product ID format.");
     }
 
     const order = await Order.findById(orderId);
@@ -39,8 +39,6 @@ export async function getOrderByIdService(orderId) {
 
 export async function createOrderService(orderDetails) {
   try {
-    console.log("orderDetails--->", orderDetails);
-
     if (!orderDetails) {
       throw new Error("orderDetails is missing.");
     }
@@ -68,10 +66,6 @@ export async function updateOrderService(orderId, updateData) {
   try {
     if (!orderId) {
       throw new Error("Order ID is required.");
-    }
-
-    if (!updateData || Object.keys(updateData).length === 0) {
-      throw new Error("No data provided for update.");
     }
 
     const updatedOrder = await Order.findByIdAndUpdate(

@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { getAllUsers, createUser, getUserId, updateUser, deleteUser } from './userController.js';
+import { registerTag } from '../../../src/swagger/swaggerTags.js';
 
+registerTag('User', 'Todas las rutas relacionadas al usuario');
 const router = Router();
 
 router.post('/createUser', createUser);

@@ -41,7 +41,7 @@ export const createUser = async (req, res) => {
   } catch (error) {
     console.error(`Error while fetching users: ${error.message}`);
 
-    return response.status(500).json({
+    return res.status(500).json({
       status: "error",
       result: false,
       errorDetails: {
@@ -54,11 +54,9 @@ export const createUser = async (req, res) => {
 
 export const getUserId = async (req, res) => {
   try {
-    const { userId } = req.params;
-    console.log(`Received request to get user with ID: ${userId}`);
+    const { userId } = req.params;    
 
-    const user = await getUserByIdService(userId);
-    console.log(`User found:`, user);
+    const user = await getUserByIdService(userId);    
 
     return res.status(200).json({
       status: "success",
@@ -105,14 +103,14 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
   try {
     const { userId } = req.params;
-
+    
     await deleteUserService(userId);
 
-    return {
+    return res.status(200).json({
       status: "success",
       result: true,
       message: "User deleted successfully"
-    };
+    });
   } catch (error) {
     console.error(`Error code: ${error.code}, Error message: ${error.message}`);
     return res.status(500).json({

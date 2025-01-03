@@ -17,14 +17,14 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-import { server } from "./src/app.js";
+import { httpServer } from "./app.js";
 import connectDB from "./src/config/db.js";
 
 const port = process.env.PORT || 3001
 
 // Syncing all the models at once.
 connectDB().then(() => {
-  server.listen(port, () => {
+  httpServer.listen(port, () => {
     console.log(`%s listening at ${port}`);
   });
 }).catch((error) => {

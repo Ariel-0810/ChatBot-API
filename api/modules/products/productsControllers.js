@@ -80,11 +80,14 @@ export const getProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
-    const { productId, updateData } = req.params;
-    console.log(`Received request to get product with ID: ${productId}`);
+    const { productId } = req.params;
+    const { updateData } = req.body;
+
+    console.log(`Received request to update product with ID: ${productId}`);
+    console.log(`Update data received:`, updateData);
 
     const product = await updateProductService(productId, updateData);
-    console.log(`Product found:`, product);
+    console.log(`Updated product:`, product);
 
     return res.status(200).json({
       status: "success",

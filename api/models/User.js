@@ -3,6 +3,7 @@ import { Schema, model } from 'mongoose';
 const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
+  role: { type: String },
   email: { type: String,   unique: true, match: [/^\S+@\S+\.\S+$/, 'El correo debe ser válido'], required: true },
 },
 { 

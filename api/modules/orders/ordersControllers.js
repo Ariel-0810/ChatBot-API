@@ -86,7 +86,8 @@ export const getOrder = async (req, res) => {
 
 export const updateOrder = async (req, res) => {
   try {
-    const { orderId, updateData } = req.params;
+    const { orderId } = req.params;
+    const { updateData } = req.body;
     console.log(`Received request to get order with ID: ${orderId}`);
 
     const order = await updateOrderService(orderId, updateData);

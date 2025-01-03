@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 import User from "../../models/User.js";
 import mongoose from "mongoose";
 
@@ -27,10 +27,6 @@ export async function getUserByIdService(userId) {
       throw new Error("User ID is missing.");
     }
 
-    if (!mongoose.Types.ObjectId.isValid(userId)) {
-      throw new Error("Invalid User ID format.");
-    }
-
     const user = await User.findById(userId);
 
     if (!user) {
@@ -57,6 +53,7 @@ export async function createUserService(data) {
       username,
       password: hashedPassword,
       email,
+      role: 'user'
     });
 
     const savedUser = await newUser.save();
@@ -64,7 +61,7 @@ export async function createUserService(data) {
   } catch (error) {
     throw new Error(`Error creating user: ${error.message}`);
   }
-};
+}
 
 export async function updateUserService(userId, objectData) {
   try {
@@ -84,23 +81,35 @@ export async function updateUserService(userId, objectData) {
 
     return updatedUser;
   } catch (error) {
-    throw new Error(error.message || "An error occurred while updating the user.");
+    throw new Error(
+      error.message || "An error occurred while updating the user."
+    );
   }
 }
 
 export async function deleteUserService(userId) {
   try {
+
     if (!userId) {
       throw new Error("User ID is missing.");
     }
 
-    const user = await User.findById(userId);
+    const objectId = new mongoose.Types.ObjectId(userId);
 
-    if (!user) {
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      throw new Error(`Invalid ObjectId format: ${userId}`);
+    }
+
+    const result = await User.deleteOne({
+      _id: objectId
+    });
+
+
+    if (result.deletedCount === 0) {
       throw new Error(`User with ID ${userId} does not exist.`);
     }
 
-    await User.deleteOne({ _id: userId });
+    return result;
   } catch (error) {
     throw error;
   }

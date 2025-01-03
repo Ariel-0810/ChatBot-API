@@ -1,14 +1,15 @@
 import express from 'express';
 import cors from 'cors';
+import http from 'node:http';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import router from '../api/main.js';
-import { createServer } from 'http';
+import router from './api/main.js';
+import connectDB from './src/config/db.js';
+import { swaggerDocs } from './src/swagger/swaggerMiddleware.js';
 
-const app = express();
+export const app = express();
 
-const server = createServer(app);
 
 const { urlencoded, json } = bodyParser;
 app.use(urlencoded({ extended: true, limit: '50mb' }));
@@ -25,7 +26,11 @@ app.use((req, res, next) => {
   next();
 });
 
+connectDB()
+
 app.use('/', router);
+
+swaggerDocs(app);
 
 // Middleware para manejar errores
 app.use((err, req, res, next) => {
@@ -35,4 +40,4 @@ app.use((err, req, res, next) => {
   res.status(status).send(message);
 });
 
-export { server }; 
+export const httpServer = http.createServer(app);

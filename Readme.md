@@ -68,7 +68,7 @@ Asegúrate de tener las siguientes herramientas instaladas:
 
 Para inicializar la base de datos con datos de ejemplo:
 
-1. Asegúrate de tener el archivo data.json en la raíz del proyecto. Este archivo debe contener información sobre los productos.
+1. Asegúrate de tener el archivo data.json en la raíz del proyecto. Este archivo contiene información sobre los productos.
 
 2. Ejecuta el siguiente comando:
    ```bash

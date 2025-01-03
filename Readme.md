@@ -51,7 +51,7 @@ Asegúrate de tener las siguientes herramientas instaladas:
 
 3. Configura las variables de entorno. Crea un archivo .env en la raíz del proyecto con el siguiente contenido:
    ```bash
-    MONGODB_URI=mongodb://127.0.0.1:27017/sushi_chatbotia
+    MONGODB_URI=mongodb://127.0.0.1:27017/your_database_name
     PORT=3001
     JWT_SECRET=your_secret_key
    ```

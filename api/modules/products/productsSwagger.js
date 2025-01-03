@@ -3,16 +3,16 @@
 export const getAllProductsSwagger = {
   "/product/getAllProducts": {
     get: {
-      tags: ["Product"], // Categoría o módulo
-      summary: "Retrieve all products", // Descripción corta
-      description: "Fetches all products from the database with their details.", // Descripción detallada
+      tags: ["Product"],
+      summary: "Retrieve all products",
+      description: "Fetches all products from the database with their details.",
       responses: {
         200: {
           description: "Successful response with product data",
           content: {
             "application/json": {
               schema: {
-                type: "object", // La respuesta es un objeto con los campos 'status', 'result', y 'users'
+                type: "object",
                 properties: {
                   status: {
                     type: "string",
@@ -105,16 +105,14 @@ export const getAllProductsSwagger = {
 
 export const getProductSwagger = {
   "/product/getProduct/{productId}": {
-    // Usar path parameters en lugar de requestBody
     get: {
-      // Cambié a GET ya que estás utilizando un parámetro en la URL
-      tags: ["Product"], // Categoría o módulo
-      summary: "Retrieve product by ID", // Descripción corta
-      description: "Fetches a product by their unique ID.", // Descripción detallada
+      tags: ["Product"],
+      summary: "Retrieve product by ID",
+      description: "Fetches a product by their unique ID.",
       parameters: [
         {
           name: "productId",
-          in: "path", // Parámetro en la URL
+          in: "path",
           required: true,
           description: "Unique identifier of the product",
           schema: {
@@ -129,7 +127,7 @@ export const getProductSwagger = {
           content: {
             "application/json": {
               schema: {
-                type: "object", // La respuesta es un objeto con 'status', 'result', y 'user'
+                type: "object",
                 properties: {
                   status: {
                     type: "string",

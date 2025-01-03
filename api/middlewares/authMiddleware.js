@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
-  const token = req.header('Authorization');
+  const token = req.header("Authorization");
   if (!token) {
-    return res.status(401).json({ message: 'Access denied' });
+    return res.status(401).json({ message: "Access denied" });
   }
 
   try {
@@ -11,6 +11,6 @@ export const verifyToken = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    return res.status(400).json({ message: 'Invalid token' });
+    return res.status(400).json({ message: "Invalid token" });
   }
 };

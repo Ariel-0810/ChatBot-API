@@ -118,7 +118,6 @@ export async function deleteProductService(productId) {
       _id: objectId
     });
 
-
     if (result.deletedCount === 0) {
       throw new Error(`Product with ID ${productId} does not exist.`);
     }

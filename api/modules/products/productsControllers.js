@@ -9,11 +9,11 @@ import {
 export const createProduct = async (req, res) => {
   try {
     const product = await createProductService(req.body);
-    
+
     return res.status(200).json({
       status: "success",
       result: true,
-      product,
+      product
     });
   } catch (error) {
     console.error(`Error while fetching product: ${error.message}`);
@@ -23,8 +23,8 @@ export const createProduct = async (req, res) => {
       result: false,
       errorDetails: {
         code: error.code || "UNKNOWN_ERROR",
-        message: error.message,
-      },
+        message: error.message
+      }
     });
   }
 };
@@ -32,11 +32,11 @@ export const createProduct = async (req, res) => {
 export const getAllProducts = async (req, res) => {
   try {
     const products = await getAllProductsServices(req.body);
-    
+
     return res.status(200).json({
       status: "success",
       result: true,
-      products,
+      products
     });
   } catch (error) {
     console.error(`Error while fetching products: ${error.message}`);
@@ -46,8 +46,8 @@ export const getAllProducts = async (req, res) => {
       result: false,
       errorDetails: {
         code: error.code || "UNKNOWN_ERROR",
-        message: error.message,
-      },
+        message: error.message
+      }
     });
   }
 };
@@ -55,15 +55,13 @@ export const getAllProducts = async (req, res) => {
 export const getProduct = async (req, res) => {
   try {
     const { productId } = req.params;
-    console.log(`Received request to get product with ID: ${productId}`);
 
     const product = await getProductByIdService(productId);
-    console.log(`Product found:`, product);
 
     return res.status(200).json({
       status: "success",
       result: true,
-      product,
+      product
     });
   } catch (error) {
     console.error(`Error code: ${error.code}, Error message: ${error.message}`);
@@ -72,8 +70,8 @@ export const getProduct = async (req, res) => {
       result: false,
       errorDetails: {
         code: error.code,
-        message: error.message,
-      },
+        message: error.message
+      }
     });
   }
 };
@@ -83,16 +81,12 @@ export const updateProduct = async (req, res) => {
     const { productId } = req.params;
     const { updateData } = req.body;
 
-    console.log(`Received request to update product with ID: ${productId}`);
-    console.log(`Update data received:`, updateData);
-
     const product = await updateProductService(productId, updateData);
-    console.log(`Updated product:`, product);
 
     return res.status(200).json({
       status: "success",
       result: true,
-      product,
+      product
     });
   } catch (error) {
     console.error(`Error code: ${error.code}, Error message: ${error.message}`);
@@ -101,8 +95,8 @@ export const updateProduct = async (req, res) => {
       result: false,
       errorDetails: {
         code: error.code,
-        message: error.message,
-      },
+        message: error.message
+      }
     });
   }
 };
@@ -116,7 +110,7 @@ export const deleteProduct = async (req, res) => {
     return res.status(200).json({
       status: "success",
       result: true,
-      product,
+      product
     });
   } catch (error) {
     console.error(`Error code: ${error.code}, Error message: ${error.message}`);
@@ -125,11 +119,8 @@ export const deleteProduct = async (req, res) => {
       result: false,
       errorDetails: {
         code: error.code,
-        message: error.message,
-      },
+        message: error.message
+      }
     });
   }
 };
-
-
-

@@ -1,6 +1,5 @@
 {
-    "watch": ["src", "api"],
-    "ext": "js,json",
-    "ignore": ["src/tests/*"]
-  }
-  
+  "watch": ["src", "api"],
+  "ext": "js,json",
+  "ignore": ["src/tests/*"]
+}

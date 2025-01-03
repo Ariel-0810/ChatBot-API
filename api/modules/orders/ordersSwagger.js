@@ -3,16 +3,16 @@
 export const getAllOrdersSwagger = {
   "/order/getAllOrders": {
     get: {
-      tags: ["Order"], // Categoría o módulo
-      summary: "Retrieve all orders", // Descripción corta
-      description: "Fetches all orders from the database with their details.", // Descripción detallada
+      tags: ["Order"],
+      summary: "Retrieve all orders",
+      description: "Fetches all orders from the database with their details.",
       responses: {
         200: {
           description: "Successful response with order data",
           content: {
             "application/json": {
               schema: {
-                type: "object", // La respuesta es un objeto con los campos 'status', 'result', y 'users'
+                type: "object",
                 properties: {
                   status: {
                     type: "string",
@@ -102,16 +102,14 @@ export const getAllOrdersSwagger = {
 
 export const getOrderSwagger = {
   "/order/getOrder/{orderId}": {
-    // Usar path parameters en lugar de requestBody
     get: {
-      // Cambié a GET ya que estás utilizando un parámetro en la URL
-      tags: ["Order"], // Categoría o módulo
-      summary: "Retrieve order by ID", // Descripción corta
-      description: "Fetches a order by their unique ID.", // Descripción detallada
+      tags: ["Order"],
+      summary: "Retrieve order by ID",
+      description: "Fetches a order by their unique ID.",
       parameters: [
         {
           name: "orderId",
-          in: "path", // Parámetro en la URL
+          in: "path",
           required: true,
           description: "Unique identifier of the order",
           schema: {
@@ -126,7 +124,7 @@ export const getOrderSwagger = {
           content: {
             "application/json": {
               schema: {
-                type: "object", // La respuesta es un objeto con 'status', 'result', y 'user'
+                type: "object",
                 properties: {
                   status: {
                     type: "string",

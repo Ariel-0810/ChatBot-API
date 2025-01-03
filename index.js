@@ -20,13 +20,15 @@
 import { httpServer } from "./app.js";
 import connectDB from "./src/config/db.js";
 
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
 
 // Syncing all the models at once.
-connectDB().then(() => {
-  httpServer.listen(port, () => {
-    console.log(`%s listening at ${port}`);
+connectDB()
+  .then(() => {
+    httpServer.listen(port, () => {
+      console.log(`%s listening at ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error(`Failed to connect to the database: ${error.message}`);
   });
-}).catch((error) => {
-  console.error(`Failed to connect to the database: ${error.message}`);
-});

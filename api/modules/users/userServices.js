@@ -53,7 +53,7 @@ export async function createUserService(data) {
       username,
       password: hashedPassword,
       email,
-      role: 'user'
+      role: "user"
     });
 
     const savedUser = await newUser.save();
@@ -89,7 +89,6 @@ export async function updateUserService(userId, objectData) {
 
 export async function deleteUserService(userId) {
   try {
-
     if (!userId) {
       throw new Error("User ID is missing.");
     }
@@ -103,7 +102,6 @@ export async function deleteUserService(userId) {
     const result = await User.deleteOne({
       _id: objectId
     });
-
 
     if (result.deletedCount === 0) {
       throw new Error(`User with ID ${userId} does not exist.`);

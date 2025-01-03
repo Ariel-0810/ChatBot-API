@@ -1,31 +1,31 @@
-import swaggerJSDoc from 'swagger-jsdoc';
-import swaggerUi from 'swagger-ui-express';
-import { getRegisteredTags } from './src/swagger/swaggerTags.js';  // Asegúrate de tener tu archivo de tags
-import * as User from './api/modules/users/userSwagger.js';  // Importa tu archivo de rutas de usuarios
-import * as Product from './api/modules/products/productsSwagger.js';  // Importa tu archivo de rutas de usuarios
-import * as Order from './api/modules/orders/ordersSwagger.js';  // Importa tu archivo de rutas de usuarios
-import * as Login from './api/modules/auth/authSwagger.js';  // Importa tu archivo de rutas de usuarios
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import { getRegisteredTags } from "./src/swagger/swaggerTags.js";
+import * as User from "./api/modules/users/userSwagger.js";
+import * as Product from "./api/modules/products/productsSwagger.js";
+import * as Order from "./api/modules/orders/ordersSwagger.js";
+import * as Login from "./api/modules/auth/authSwagger.js";
 
-// Otras configuraciones
 const port = process.env.PORT || 3001;
 
 const options = {
   definition: {
-    openapi: '3.0.0',
+    openapi: "3.0.0",
     info: {
-      title: 'API de Sushi ChatBotIA',
-      version: '1.0.0',
-      description: 'Esta API permite gestionar usuarios e interactuar con un ChatBot para hacer pedidos de Sushi',
+      title: "API de Sushi ChatBotIA",
+      version: "1.0.0",
+      description:
+        "Esta API permite gestionar usuarios e interactuar con un ChatBot para hacer pedidos de Sushi"
     },
     servers: [
       {
         url: `http://localhost:${port}`,
-        description: 'Main Server',
+        description: "Main Server"
       }
     ],
-    tags: getRegisteredTags(),  // Asegúrate de que las etiquetas están registradas correctamente
+    tags: getRegisteredTags()
   },
-  apis: ['./src/api/modules/**/*.js', './src/api/modules/auth/**/*.js'],  // Asegúrate de que las rutas estén configuradas correctamente
+  apis: ["./src/api/modules/**/*.js", "./src/api/modules/auth/**/*.js"]
 };
 
 // Genera el objeto swaggerSpec usando swagger-jsdoc
@@ -33,15 +33,15 @@ const swaggerSpec = swaggerJSDoc(options);
 
 // Función para agregar rutas al swaggerSpec
 const addSwaggerPaths = (spec, ...definitions) => {
-  definitions.forEach(definition => {
-    Object.keys(definition).forEach(key => {
+  definitions.forEach((definition) => {
+    Object.keys(definition).forEach((key) => {
       const pathDefinitions = definition[key];
-      Object.keys(pathDefinitions).forEach(path => {
+      Object.keys(pathDefinitions).forEach((path) => {
         const methods = pathDefinitions[path];
         if (!spec.paths[path]) {
           spec.paths[path] = {};
         }
-        Object.keys(methods).forEach(method => {
+        Object.keys(methods).forEach((method) => {
           spec.paths[path][method] = methods[method];
         });
       });
@@ -54,5 +54,5 @@ addSwaggerPaths(swaggerSpec, User, Product, Order, Login);
 
 // Exporta la configuración para usarla en tu servidor
 export const swaggerDocs = (app) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };

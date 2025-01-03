@@ -1,53 +1,52 @@
-import { Schema, model } from 'mongoose';
-
+import { Schema, model } from "mongoose";
 
 const producstSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, 'El nombre del producto es obligatorio'],
-      trim: true,
+      required: [true, "El nombre del producto es obligatorio"],
+      trim: true
     },
     description: {
       type: String,
-      required: [true, 'La descripción es obligatoria'],
-      trim: true,
+      required: [true, "La descripción es obligatoria"],
+      trim: true
     },
     price: {
       type: Number,
-      required: [true, 'El precio es obligatorio'],
-      min: [0, 'El precio no puede ser negativo'],
+      required: [true, "El precio es obligatorio"],
+      min: [0, "El precio no puede ser negativo"]
     },
     category: {
       type: String,
-      required: [true, 'La categoría es obligatoria'],
-      enum: ['sushi', 'roll', 'bento', 'bebida', 'postre'],
+      required: [true, "La categoría es obligatoria"],
+      enum: ["sushi", "roll", "bento", "bebida", "postre"]
     },
     ingredients: {
       type: [String],
-      required: [true, 'Los ingredientes son obligatorios'],
+      required: [true, "Los ingredientes son obligatorios"]
     },
     image: {
       type: String,
-      required: [true, 'La imagen es obligatoria'],
+      required: [true, "La imagen es obligatoria"]
     },
     availability: {
       type: Boolean,
-      default: true, // Indica si el producto está disponible para la venta
+      default: true
     },
-  createdAt: {
-    type: Date,
-    default: Date.now
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
+    updatedAt: {
+      type: Date,
+      default: Date.now
+    }
   },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
-},
-{ 
-  versionKey: false,
-  timestamps: true 
-});
+  {
+    versionKey: false,
+    timestamps: true
+  }
+);
 
-export default model('Product', producstSchema);
-
+export default model("Product", producstSchema);

@@ -1,78 +1,79 @@
 export const loginSwagger = {
-  '/auth/login': {
+  "/auth/login": {
     post: {
-      tags: ['Login'], // Categoría o módulo
-      summary: 'Login to the application', // Descripción corta
-      description: 'Allows users to login to the application', // Descripción detallada
+      tags: ["Login"],
+      summary: "Login to the application",
+      description: "Allows users to login to the application",
       requestBody: {
         required: true,
         content: {
-          'application/json': {
+          "application/json": {
             schema: {
-              type: 'object',
+              type: "object",
               properties: {
                 email: {
-                  type: 'string',
-                  example: 'arieluser@gmail.com'
+                  type: "string",
+                  example: "arieluser@gmail.com"
                 },
                 password: {
-                  type: 'string',
-                  example: 'Password123@'
+                  type: "string",
+                  example: "Password123@"
                 }
               },
-              required: ['email', 'password']
+              required: ["email", "password"]
             }
           }
         }
       },
       responses: {
         200: {
-          description: 'Successful login',
+          description: "Successful login",
           content: {
-            'application/json': {
+            "application/json": {
               schema: {
-                type: 'object',
+                type: "object",
                 properties: {
                   status: {
-                    type: 'string',
-                    example: 'success'
+                    type: "string",
+                    example: "success"
                   },
                   message: {
-                    type: 'string',
-                    example: 'Login successful'
+                    type: "string",
+                    example: "Login successful"
                   },
                   user: {
-                    type: 'object',
+                    type: "object",
                     properties: {
                       _id: {
-                        type: 'string',
-                        example: '67782869d3cabb9ba70fb272'
+                        type: "string",
+                        example: "67782869d3cabb9ba70fb272"
                       },
                       username: {
-                        type: 'string',
-                        example: 'ArielUser'
+                        type: "string",
+                        example: "ArielUser"
                       },
                       password: {
-                        type: 'string',
-                        example: '$2b$10$wJTasfES.3E6DuKv.OeVq.HI8QuQwvSAUKtfXFda/Nni55wY1rIia'
+                        type: "string",
+                        example:
+                          "$2b$10$wJTasfES.3E6DuKv.OeVq.HI8QuQwvSAUKtfXFda/Nni55wY1rIia"
                       },
                       role: {
-                        type: 'string',
-                        example: 'user'
+                        type: "string",
+                        example: "user"
                       },
                       email: {
-                        type: 'string',
-                        example: 'arieluser@gmail.com'
+                        type: "string",
+                        example: "arieluser@gmail.com"
                       },
                       createdAt: {
-                        type: 'string',
-                        format: 'date-time',
-                        example: '2025-01-03T18:11:53.336Z'
+                        type: "string",
+                        format: "date-time",
+                        example: "2025-01-03T18:11:53.336Z"
                       },
                       updatedAt: {
-                        type: 'string',
-                        format: 'date-time',
-                        example: '2025-01-03T18:11:53.336Z'
+                        type: "string",
+                        format: "date-time",
+                        example: "2025-01-03T18:11:53.336Z"
                       }
                     }
                   }
@@ -82,19 +83,19 @@ export const loginSwagger = {
           }
         },
         400: {
-          description: 'Invalid credentials or request',
+          description: "Invalid credentials or request",
           content: {
-            'application/json': {
+            "application/json": {
               schema: {
-                type: 'object',
+                type: "object",
                 properties: {
                   status: {
-                    type: 'string',
-                    example: 'error'
+                    type: "string",
+                    example: "error"
                   },
                   message: {
-                    type: 'string',
-                    example: 'Invalid credentials'
+                    type: "string",
+                    example: "Invalid credentials"
                   }
                 }
               }
@@ -102,19 +103,19 @@ export const loginSwagger = {
           }
         },
         500: {
-          description: 'Internal server error',
+          description: "Internal server error",
           content: {
-            'application/json': {
+            "application/json": {
               schema: {
-                type: 'object',
+                type: "object",
                 properties: {
                   status: {
-                    type: 'string',
-                    example: 'error'
+                    type: "string",
+                    example: "error"
                   },
                   message: {
-                    type: 'string',
-                    example: 'An unexpected error occurred'
+                    type: "string",
+                    example: "An unexpected error occurred"
                   }
                 }
               }

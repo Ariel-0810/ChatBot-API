@@ -54,9 +54,9 @@ export const createUser = async (req, res) => {
 
 export const getUserId = async (req, res) => {
   try {
-    const { userId } = req.params;    
+    const { userId } = req.params;
 
-    const user = await getUserByIdService(userId);    
+    const user = await getUserByIdService(userId);
 
     return res.status(200).json({
       status: "success",
@@ -103,7 +103,7 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
   try {
     const { userId } = req.params;
-    
+
     await deleteUserService(userId);
 
     return res.status(200).json({

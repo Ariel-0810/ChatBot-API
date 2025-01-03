@@ -4,6 +4,7 @@ import { getRegisteredTags } from './swaggerTags.js';
 import * as User from '../../api/modules/users/userSwagger.js';
 import * as Product from '../../api/modules/products/productsSwagger.js';
 import * as Order from '../../api/modules/orders/ordersSwagger.js';
+import * as Login from '../../api/modules/auth/authSwagger.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -27,7 +28,7 @@ const options = {
     ],
     tags: getRegisteredTags()
   },
-  apis: ['./src/api/modules/**/*.js']
+  apis: ['./src/api/modules/**/*.js', './src/api/modules/auth/**/*.js']
 };
 
 const swaggerSpec = swaggerJSDoc(options);
@@ -49,48 +50,8 @@ const addSwaggerPaths = (spec, ...definitions) => {
   });
 };
 
-addSwaggerPaths(swaggerSpec, User, Product, Order);
+addSwaggerPaths(swaggerSpec, User, Product, Order, Login);
 
-swaggerSpec.paths['/auth/login'] = {
-  post: {
-    tags: ['User'],
-    summary: 'Login',
-    description: 'Login to the application',
-    requestBody: {
-      required: true,
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            properties: {
-              username: { type: 'string' },
-              password: { type: 'string' }
-            },
-            required: ['username', 'password']
-          }
-        }
-      }
-    },
-    responses: {
-      200: {
-        description: 'Successful login',
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              properties: {
-                sessionToken: { type: 'string' }
-              }
-            }
-          }
-        }
-      },
-      401: {
-        description: 'Invalid credentials'
-      }
-    }
-  }
-};
 
 export const swaggerDocs = (app) => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

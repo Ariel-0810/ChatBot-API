@@ -4,6 +4,7 @@ import { getRegisteredTags } from './src/swagger/swaggerTags.js';  // Asegúrate
 import * as User from './api/modules/users/userSwagger.js';  // Importa tu archivo de rutas de usuarios
 import * as Product from './api/modules/products/productsSwagger.js';  // Importa tu archivo de rutas de usuarios
 import * as Order from './api/modules/orders/ordersSwagger.js';  // Importa tu archivo de rutas de usuarios
+import * as Login from './api/modules/auth/authSwagger.js';  // Importa tu archivo de rutas de usuarios
 
 // Otras configuraciones
 const port = process.env.PORT || 3001;
@@ -24,7 +25,7 @@ const options = {
     ],
     tags: getRegisteredTags(),  // Asegúrate de que las etiquetas están registradas correctamente
   },
-  apis: ['./src/api/modules/**/*.js'],  // Asegúrate de que las rutas estén configuradas correctamente
+  apis: ['./src/api/modules/**/*.js', './src/api/modules/auth/**/*.js'],  // Asegúrate de que las rutas estén configuradas correctamente
 };
 
 // Genera el objeto swaggerSpec usando swagger-jsdoc
@@ -49,7 +50,7 @@ const addSwaggerPaths = (spec, ...definitions) => {
 };
 
 // Aquí agregas las rutas de los usuarios a tu especificación
-addSwaggerPaths(swaggerSpec, User, Product, Order);
+addSwaggerPaths(swaggerSpec, User, Product, Order, Login);
 
 // Exporta la configuración para usarla en tu servidor
 export const swaggerDocs = (app) => {

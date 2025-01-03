@@ -3,7 +3,7 @@
 
 ## Guía para iniciar el proyecto
 
-Aquí están los comandos que necesitas para iniciar tu proyecto. Asegúrate de tener instalado Node.js la versión 18.20.5 y NPM en tu sistema antes de ejecutar estos comandos.
+Aquí están los comandos que necesitas para iniciar tu proyecto. Asegúrate de tener instalado Node.js la versión 18.20.5 o superior y NPM en tu sistema antes de ejecutar estos comandos.
 
 ```bash
 # Instala las dependencias del proyecto

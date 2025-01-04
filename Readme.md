@@ -113,7 +113,7 @@ La base de datos está configurada para almacenar:
 Para cargar los datos iniciales, sigue las instrucciones en la sección [Cargar Datos Iniciales](#cargar-datos-iniciales)
 
 ## Swagger API Docs
-Una vez tu servidor este online en localhost,
+Una vez que tu servidor este online en localhost,
 puedes explorar la documentación de la API generada con Swagger en la siguiente ruta:
    ```bash
    http://localhost:3001/api-docs

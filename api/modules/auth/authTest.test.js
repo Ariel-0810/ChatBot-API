@@ -52,7 +52,7 @@ describe("Login tests", () => {
 
       expect(loginResponse.status).toBe(400);
       expect(loginResponse.body.status).toBe("error");
-      expect(loginResponse.body.message).toBe("User not found");
+      expect(loginResponse.body.message).toBe("Usuario no encontrado");
     });
 
     it("should return error if password is incorrect", async () => {
@@ -66,7 +66,7 @@ describe("Login tests", () => {
 
       expect(loginResponse.status).toBe(400);
       expect(loginResponse.body.status).toBe("error");
-      expect(loginResponse.body.message).toBe("Invalid credentials");
+      expect(loginResponse.body.message).toBe("Credenciales invalidas");
     });
   });
 

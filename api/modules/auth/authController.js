@@ -22,8 +22,8 @@ export const login = async (req, res) => {
     const statusCode =
       error.message === "User not found" ||
       error.message === "Invalid credentials"
-        ? 400
-        : 500;
+        ? 500
+        : 400;
     return res.status(statusCode).json({
       status: "error",
       message: error.message

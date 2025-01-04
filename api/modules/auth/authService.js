@@ -8,13 +8,13 @@ export const loginService = async (email, password) => {
     // Verificar si el usuario existe
     const user = await User.findOne({ email });
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("Usuario no encontrado");
     }
 
     // Verificar la contraseña
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      throw new Error("Invalid credentials");
+      throw new Error("Credenciales invalidas");
     }
 
     // Crear y devolver un sessionToken JWT

@@ -1,6 +1,6 @@
-# Sushi ChatBotIA 1.0
+# Sushi ChatBot 1.0
 
-¡Bienvenido a Sushi ChatBotIA! Este es un proyecto diseñado para simplificar los pedidos de sushi mediante un chatbot interactivo. A continuación, encontrarás toda la información necesaria para instalar, ejecutar y probar esta aplicación.
+¡Bienvenido a Sushi ChatBot! Este es un proyecto diseñado para simplificar los pedidos de sushi mediante un chatbot interactivo. A continuación, encontrarás toda la información necesaria para instalar, ejecutar y probar esta aplicación.
 
 ---
 
@@ -40,8 +40,8 @@ Asegúrate de tener las siguientes herramientas instaladas:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/Ariel-0810/Nular_ChatBot-API.git
-   cd Nular_ChatBot-API
+   git clone https://github.com/Ariel-0810/ChatBot-API.git
+   cd ChatBot-API
    ```
 
 2. Instala las dependencias del proyecto:

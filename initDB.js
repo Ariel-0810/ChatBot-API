@@ -25,8 +25,8 @@ async function initializeDB() {
 
   const users = [
     {
-      username: "LuanAdmin",
-      email: "luanadmin@gmail.com",
+      username: "UsuarioAdmin",
+      email: "usuarioadmin@gmail.com",
       password: "Admin123@",
       role: "admin"
     },
